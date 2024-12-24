@@ -1,0 +1,50 @@
+name: Build and Test .NET Library
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Set up .NET
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.x' # Adjust for your project
+
+      # Restore dependencies
+      - name: Restore Dependencies
+        run: dotnet restore
+
+      # Build the library
+      - name: Build Library
+        run: dotnet build --no-restore --configuration Release
+
+      # Run tests and collect code coverage
+      - name: Run Tests with Code Coverage
+        run: dotnet test --no-build --configuration Release --collect:"XPlat Code Coverage"
+
+      # Convert coverage report to JSON
+      - name: Convert Coverage to JSON
+        run: |
+          reportgenerator \
+            -reports:TestResults/**/*.coverage.cobertura.xml \
+            -targetdir:coverage-report \
+            -reporttypes:JsonSummary
+
+      # Extract coverage percentage
+      - name: Extract Coverage Percentage
+        id: extract-coverage
+        run: |
+          echo "Reading coverage percentage..."
+          COVERAGE=$(jq .coveragePercentage coverage-report/Summary.json)
+          echo "coverage=$COVERAGE" >> $GITHUB_ENV
