@@ -1,1 +1,0 @@
-# csharp-opensource-template
