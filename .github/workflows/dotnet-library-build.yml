@@ -37,7 +37,7 @@ jobs:
       - name: Convert Coverage to JSON
         run: |
           reportgenerator \
-            -reports:TestResults/**/*.coverage.cobertura.xml \
+            -reports:TestResults/**/*coverage.cobertura.xml \
             -targetdir:coverage-report \
             -reporttypes:JsonSummary
 
