@@ -12,13 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+using OssTemplate;
+
 namespace OssTemplateTests;
 
 public class Tests
 {
     [Test]
-    public void Test1()
+    public void Sum_Test()
     {
-        Assert.Pass();
+        int actual = Example.Sum(1, 3);
+
+        Assert.That(actual, Is.EqualTo(4));
     }
 }
