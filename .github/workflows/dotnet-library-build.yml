@@ -33,19 +33,3 @@ jobs:
 
       - name: Run Tests with Code Coverage
         run: dotnet test --no-build --configuration Release --collect:"XPlat Code Coverage"
-
-      - name: Convert Coverage to JSON
-        run: |
-          reportgenerator \
-            -reports:${{ github.workspace }}/tests/TestResults/**/*coverage.cobertura.xml \
-            -targetdir:${{ github.workspace }}/tests/coverage-report \
-            -reporttypes:JsonSummary
-
-      - name: Extract Coverage Percentage
-        id: extract-coverage
-        run: |
-          echo "Reading coverage percentage..."
-          cat ${{ github.workspace }}/tests/coverage-report/Summary.json
-          COVERAGE=$(jq .summary.linecoverage ${{ github.workspace }}/tests/coverage-report/Summary.json)
-          echo "coverage=$COVERAGE"
-          echo "coverage=$COVERAGE" >> $GITHUB_ENV

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -7,6 +7,8 @@
 
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
+	<RootNamespace>Rebels.OpenSource.Csharp.ClassLibraryTemplate.Tests</RootNamespace>
+	<AssemblyName>Rebels.OpenSource.Csharp.ClassLibraryTemplate.Tests</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\OssTemplate.csproj" />
+    <ProjectReference Include="..\..\src\Rebels.OpenSource.Csharp.ClassLibraryTemplate\Rebels.OpenSource.Csharp.ClassLibraryTemplate.csproj" />
   </ItemGroup>
 
 </Project>

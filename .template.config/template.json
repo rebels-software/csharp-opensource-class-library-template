@@ -1,0 +1,11 @@
+{
+  "author": "Rebels Software sp. z o.o.",
+  "classifications": [ "ClassLibrary" ],
+  "name": "Rebels Open Source CSharp Class Library",
+  "identity": "Rebels.OpenSource.Csharp.ClassLibraryTemplate",
+  "shortName": "rebelsclasslib",
+  "tags": {
+    "language": "C#"
+  },
+  "sourceName": "Rebels.OpenSource.Csharp.ClassLibraryTemplate"
+}
