@@ -10,7 +10,7 @@ jobs:
   publish:
     name: Package & Publish template
     runs-on: windows-latest
-    needs: build-and-test
+    needs: build
 
     steps:
       - name: Checkout repository
