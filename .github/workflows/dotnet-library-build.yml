@@ -1,4 +1,4 @@
-﻿name: build-and-test
+﻿name: Build
 
 on:
   push:
@@ -42,7 +42,7 @@ jobs:
         run: |
           if ls *.nuspec 1> /dev/null 2>&1; then
             echo "Packing using .nuspec file..."
-            nuget pack *.nuspec -OutputDirectory artifacts -NoDefaultExcludes
+            dotnet pack *.nuspec -OutputDirectory artifacts -NoDefaultExcludes
           else
             echo "Packing using .csproj file..."
             dotnet pack -c Release --no-build --output artifacts
