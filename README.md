@@ -2,8 +2,6 @@
 
 [![Build](https://github.com/rebels-software/csharp-opensource-class-library-template/actions/workflows/dotnet-library-build.yml/badge.svg)](https://github.com/rebels-software/csharp-opensource-class-library-template/actions/workflows/dotnet-library-build.yml)
 
-[![Publish template to NuGet](https://github.com/rebels-software/csharp-opensource-class-library-template/actions/workflows/dotnet-publish.yml/badge.svg)](https://github.com/rebels-software/csharp-opensource-class-library-template/actions/workflows/dotnet-publish.yml)
-
 [![codecov](https://codecov.io/gh/rebels-software/csharp-opensource-class-library-template/graph/badge.svg?token=MJBW9OV494)](https://codecov.io/gh/rebels-software/csharp-opensource-class-library-template)
 
 ![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)

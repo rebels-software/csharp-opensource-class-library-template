@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
 	<RootNamespace>Rebels.OpenSource.Csharp.ClassLibraryTemplate</RootNamespace>
 	<AssemblyName>Rebels.OpenSource.Csharp.ClassLibraryTemplate</AssemblyName>
+    <Version>0.0.1-rc</Version>
   </PropertyGroup>
 
 </Project>
