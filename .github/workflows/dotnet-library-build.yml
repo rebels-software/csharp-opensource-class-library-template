@@ -1,4 +1,4 @@
-﻿name: Build
+﻿name: Build and test
 
 on:
   push:
@@ -48,8 +48,6 @@ jobs:
             dotnet pack -c Release --no-build --output artifacts
           }
 
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: nuget-package
-          path: artifacts/*.nupkg
+      - name: Publish to NuGet
+        run: nuget push artifacts/*.nupkg -ApiKey ${{ secrets.NUGET_API_KEY }} -Source https://api.nuget.org/v3/index.json -SkipDuplicate
+

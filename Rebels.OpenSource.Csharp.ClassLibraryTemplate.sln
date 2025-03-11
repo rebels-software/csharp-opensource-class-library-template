@@ -26,7 +26,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflow", "workflow", "{41075CC7-5AB4-4656-BB0A-6B22C597354E}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\dotnet-library-build.yml = .github\workflows\dotnet-library-build.yml
-		dotnet-publish.yml = dotnet-publish.yml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rebels.OpenSource.Csharp.ClassLibraryTemplate", "src\Rebels.OpenSource.Csharp.ClassLibraryTemplate\Rebels.OpenSource.Csharp.ClassLibraryTemplate.csproj", "{89E25979-9360-41CA-829A-DB219257154F}"
