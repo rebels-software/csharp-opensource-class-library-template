@@ -41,10 +41,12 @@ jobs:
       - name: Get version from csproj
         id: version
         run: |
-          [xml]$proj = Get-Content MyProject.csproj
-          $version = $proj.Project.PropertyGroup.Version
-          echo "PACKAGE_VERSION=$version" >> $env:GITHUB_ENV
-          echo "Wersja paczki: $version"
+          $csproj = Get-ChildItem -Path . -Filter *.csproj -Recurse | Select-Object -First 1
+            if (-not $csproj) { Write-Host "Brak pliku .csproj!"; exit 1 }
+            [xml]$proj = Get-Content $csproj.FullName
+            $version = $proj.Project.PropertyGroup.Version
+            echo "PACKAGE_VERSION=$version" >> $env:GITHUB_ENV
+            Write-Host "Package version: $version"
 
       - name: Create git tag
         run: |
