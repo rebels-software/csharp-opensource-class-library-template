@@ -8,7 +8,7 @@
     <projectUrl>https://github.com/rebels-software/csharp-opensource-class-library-template</projectUrl>
     <repository type="git" url="https://github.com/rebels-software/csharp-opensource-class-library-template" branch="main" />
     <tags>rebels class library template</tags>
-    <license type="expressions">Apache-2.0</license>
+    <license type="expression">Apache-2.0</license>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <icon>content/assets/icon.png</icon>
     <readme>content/README.md</readme>
