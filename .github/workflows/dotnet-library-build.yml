@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-and-test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout repository
@@ -40,13 +40,13 @@ jobs:
 
       - name: Conditional Packing (nuspec or csproj)
         run: |
-          if ls *.nuspec 1> /dev/null 2>&1; then
-            echo "Packing using .nuspec file..."
-            dotnet pack *.nuspec -OutputDirectory artifacts -NoDefaultExcludes
-          else
-            echo "Packing using .csproj file..."
+          if (Test-Path -Path "*.nuspec") {
+            Write-Host "Packing using .nuspec file..."
+            nuget pack (Get-ChildItem -Path "*.nuspec") -OutputDirectory artifacts -NoDefaultExcludes
+          } else {
+            Write-Host "Packing using .csproj file..."
             dotnet pack -c Release --no-build --output artifacts
-          fi
+          }
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
