@@ -1,35 +1,55 @@
-name: Build and Test .NET Library
+﻿name: build-and-test
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
+    branches: [main]
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Install ReportGenerator
-        run: dotnet tool install --global dotnet-reportgenerator-globaltool
-
-      - name: Add .NET Tools to PATH
-        run: echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
-
-      - name: Checkout Code
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.x'
+          dotnet-version: 8.0.x
 
-      - name: Restore Dependencies
+      - name: Restore dependencies
         run: dotnet restore
 
-      - name: Build Library
-        run: dotnet build --no-restore --configuration Release
+      - name: Build
+        run: dotnet build -c Release --no-restore
 
-      - name: Run Tests with Code Coverage
-        run: dotnet test --no-build --configuration Release --collect:"XPlat Code Coverage"
+      - name: Test
+        run: dotnet test -c Release --no-restore --verbosity normal --collect:"XPlat Code Coverage"
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODE_COV_TOKEN }}
+
+      - name: Install NuGet CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install nuget -y
+
+      - name: Conditional Packing (nuspec or csproj)
+        run: |
+          if ls *.nuspec 1> /dev/null 2>&1; then
+            echo "Packing using .nuspec file..."
+            nuget pack *.nuspec -OutputDirectory artifacts -NoDefaultExcludes
+          else
+            echo "Packing using .csproj file..."
+            dotnet pack -c Release --no-build --output artifacts
+          fi
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: nuget-package
+          path: artifacts/*.nupkg

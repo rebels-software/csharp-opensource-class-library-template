@@ -3,7 +3,7 @@
   "classifications": [ "ClassLibrary" ],
   "name": "Rebels Open Source CSharp Class Library",
   "identity": "Rebels.OpenSource.Csharp.ClassLibraryTemplate",
-  "shortName": "rebelsclasslib",
+  "shortName": "rebels-class-library",
   "tags": {
     "language": "C#"
   },
