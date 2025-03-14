@@ -1,0 +1,15 @@
+﻿name: Build and publish .NET library project
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    uses: rebels-software/github-actions/.github/workflows/build-dotnet.yaml@main
+    with:
+      dotnet-version: "8.0"
+    secrets:
+      CODE_COV_TOKEN: ${{ secrets.CODE_COV_TOKEN }}
