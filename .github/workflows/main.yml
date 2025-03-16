@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    uses: rebels-software/github-actions/.github/workflows/build-dotnet.yaml@main
+    uses: rebels-software/github-actions/.github/workflows/build-dotnet-library.yaml@main
     with:
       dotnet-version: "8.0.x"
     secrets:
