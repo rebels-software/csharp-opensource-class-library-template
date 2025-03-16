@@ -8,6 +8,7 @@ on:
 
 jobs:
   build:
+    name: "Buld and test"
     uses: rebels-software/github-actions/.github/workflows/build-dotnet-library.yaml@main
     with:
       dotnet-version: "8.0.x"
@@ -15,8 +16,9 @@ jobs:
       CODE_COV_TOKEN: ${{ secrets.CODE_COV_TOKEN }}
   
   publish:
+    name: "Publish to NuGet"
     uses: rebels-software/github-actions/.github/workflows/publish-dotnet-package.yaml@main
     needs: build
     secrets:
-      CODE_COV_TOKEN: ${{ secrets.NUGET_API_TOKEN }}
+      NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
       

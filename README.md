@@ -1,6 +1,6 @@
 # C# Library Template
 
-[![Build](https://github.com/rebels-software/csharp-opensource-class-library-template/actions/workflows/main.yml/badge.svg)](https://github.com/rebels-software/csharp-opensource-class-library-template/actions/workflows/main.yml)
+[![Builsd and test](https://github.com/rebels-software/csharp-opensource-class-library-template/actions/workflows/main.yml/badge.svg)](https://github.com/rebels-software/csharp-opensource-class-library-template/actions/workflows/main.yml)
 
 [![codecov](https://codecov.io/gh/rebels-software/csharp-opensource-class-library-template/graph/badge.svg?token=MJBW9OV494)](https://codecov.io/gh/rebels-software/csharp-opensource-class-library-template)
 
