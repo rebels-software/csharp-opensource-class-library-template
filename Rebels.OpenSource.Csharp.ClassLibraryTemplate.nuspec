@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Rebels.OpenSource.Csharp.ClassLibraryTemplate</id>
-    <version>1.0.0</version>
+    <version>0.0.1-rc</version>
     <authors>Rebels Software sp. z o.o.</authors>
     <description>.NET 8 class library template</description>
     <projectUrl>https://github.com/rebels-software/csharp-opensource-class-library-template</projectUrl>
